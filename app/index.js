@@ -14,18 +14,18 @@ var App = React.createClass({
 		})
 	},
 
-  updateOutput: function(event) {
+  updateInput: function(event) {
     this.setState({inputText: event.target.value, outputText:''})
   },
 
 	render: function() {
 		return ( 
 			<div className="container">
-        <div className="container-50 container-input">
+        <div className="container-input">
           <p className="description">text</p> 
-          <textarea rows="10" wrap="hard" onChange={this.updateOutput} value={this.state.inputText} />
+          <textarea wrap="hard" onChange={this.updateInput} value={this.state.inputText} />
         </div>
-        <div className="container-50 container-output"> 
+        <div className="container-output"> 
           <p className="description">markdown</p>  
           <p dangerouslySetInnerHTML={{__html: Marked(this.state.inputText, {breaks: true})}}></p>
   			</div>
